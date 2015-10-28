@@ -1,0 +1,269 @@
+//----------------------------------------------------------------------------//
+// Typography
+//----------------------------------------------------------------------------//
+
+
+@font:"sans-serif";
+@fsize:18px;
+
+body, p, input, button {
+    color:@color-text;
+    line-height:1.4;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+    font-family:@font;
+    font-size:@fsize;
+    @media (max-width: @screen-sm-min) {
+        font-size:(@fsize * 0.8);
+    }
+}
+
+// baseline spacing
+p,
+.blockquote,
+.title {
+    margin-bottom:1.4em;
+    &:empty {
+        margin:0;
+    }
+}
+
+
+//----------------------------------------------------------------------------//
+// HEADINGS
+//----------------------------------------------------------------------------//
+
+
+// Setup
+[class*="heading-"] {
+    font-weight:normal;
+    margin-bottom:1em;
+    line-height:1.2;
+    font-weight:800;
+    &.lined {
+        &::after {
+            content:"";
+            display:block;
+            width:2em;
+            height:0.2em;
+            background:@color-text;
+            background:currentColor;
+            margin-top:1em;
+        }
+    }
+    a {
+        float:right;
+        .w-r();
+        .heading-xs();
+        &:link,
+        &:visited {
+            color:@color-text;
+        }
+        &:hover {
+            color:@color-highlight;
+        }
+    }
+    i {
+        font-size:2em;
+    }
+}
+
+// Sizes
+.heading-xl  { font-size:38px; }
+.heading-lg  { font-size:28px; }
+.heading-md  { font-size:22px; }
+.heading-sm  { font-size:16px; }
+.heading-xs  { font-size:14px; }
+.heading-xxs { font-size:12px; }
+@media (max-width: @screen-sm-min) {
+    .heading-xl  { font-size:34px; }
+    .heading-lg  { font-size:24px; }
+    .heading-md  { font-size:18px; }
+    .heading-sm  { font-size:14px; }
+    .heading-xs  { font-size:12px; }
+    .heading-xxs { font-size:10px; }
+}
+
+// Weights
+.w-b { font-weight:800; }
+.w-r { font-weight:400; }
+.w-l { font-weight:100; }
+
+// Colors
+.c-highlight { color:@color-highlight; }
+.c-alert     { color:@color-alert; }
+.c-secondary { color:@color-secondary; }
+.c-details   { color:@color-details; }
+
+// leading paragraphs
+.lead {
+    font-size:(@fsize * 1.2);
+    @media (max-width: @screen-sm-min) {
+        font-size:(@fsize * 1);
+    }
+}
+
+// aside / smallprint paragraphs
+.smallprint {
+    font-size:(@fsize * 0.8);
+    color:lighten(@color-text, 20%);
+}
+
+.timestamp {
+    .c-secondary();
+    .heading-xxs();
+}
+
+.list-title {
+    .w-r();
+    .heading-xs();
+    .caps();
+    padding-bottom:0.5em;
+    margin-bottom:(@space * 1);
+    border-bottom:1px solid;
+    a {
+        float:right;
+        text-transform:none;
+        &:link,
+        &:visited {
+            color:@color-text;
+        }
+        &:hover {
+            color:@color-highlight;
+        }
+    }
+}
+
+.rule {
+    width:100%;
+    display:block;
+    height:1px;
+    border:none;
+}
+.rule-light {
+    .rule();
+    background:@color-details;
+}
+.rule-medium {
+    .rule();
+    background:@color-secondary;
+}
+.rule-dark {
+    .rule();
+    background:@color-text;
+}
+
+.has-bullet {
+    position:relative;
+    &:before {
+        content:"";
+        display:block;
+        .position(absolute, 0.2em, auto, auto, (-@space), 1);
+        .square((@space / 2));
+        background:@color-highlight;
+    }
+}
+
+.bullet-list {
+    margin-bottom:@space;
+    li {
+        padding:4px 0;
+        list-style:none;
+        position:relative;
+        &:before {
+            content:"";
+            display:block;
+            .position(absolute, 0.6em, auto, auto, (-@space), 1);
+            .square((@space / 2));
+            background:@color-highlight;
+        }
+    }
+    .bullet-list {
+        padding-left:(@space * 2);
+        margin-bottom:0;
+        li:before {
+            background:transparent;
+            box-shadow:inset 0 0 0 2px @color-highlight;
+        }
+    }
+}
+
+
+//----------------------------------------------------------------------------//
+// LINKS
+//----------------------------------------------------------------------------//
+
+
+a:link,
+a:visited {
+    color:@color-highlight;
+    text-decoration:none;
+    transition:all 0.2s;
+}
+a:hover,
+a:focus,
+a:active {
+    color:darken(@color-highlight, 10%);
+    text-decoration:none;
+    outline:none;
+}
+
+.text-link {
+    &:link,
+    &:visited {
+        text-decoration:none;
+        color:@color-highlight;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        color:darken(@color-highlight, 10%);
+    }
+}
+
+
+//----------------------------------------------------------------------------//
+// OTHER
+//----------------------------------------------------------------------------//
+
+
+.caps { text-transform:uppercase; }
+.capitalize,
+.capitalise { text-transform:capitalize; }
+
+.text-left { text-align:left; }
+
+// extra specificity may be needed for tables
+.table .text-right,
+.text-right { text-align:right; }
+
+.table .text-centre,
+.table .text-center
+.text-centre,
+.text-center { text-align:center; }
+
+.text-justify { text-align:justify; }
+
+// cut down really long text strings so they don't wrap onto two lin...
+// can be used as a class
+.text-truncate { .truncate(100%); }
+// or a mixin to specify cut-off width
+.truncate(@width) {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width:@width;
+}
+
+// force long words like emails to wrap
+.letterwrap { word-break:break-all; }
+
+// force buttons to stay on one line etc.
+.nowrap { white-space:nowrap; }
+
+// text selection
+::selection {
+    background:@color-highlight;
+    color:#fff;
+    text-shadow:none;
+}

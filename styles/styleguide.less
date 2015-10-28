@@ -1,0 +1,153 @@
+/*!
+    Styleguide by Merlin Mason
+    License: The MIT License (MIT)
+*/
+
+@charset "UTF-8";
+
+// Buildpack base
+@import "reset";
+@import "vars";
+@import "helpers";
+@import "modules/grid";
+
+.demo-grid-box {
+    background:#dfdfdf;
+    text-align:center;
+    padding:10px 0;
+    margin-bottom:30px;
+    font-size:10px;
+}
+
+.demo-spacer {
+    .cf();
+    margin:0 0 @space 0;
+}
+
+.demo-menu {
+    .position(fixed, 0, auto, 0, 0);
+    overflow-y:scroll;
+    width:160px;
+    padding:@space;
+    background:#222;
+    a {
+        display:block;
+        padding:4px 0;
+        font-size:14px;
+        &:link,
+        &:visited {
+            color:#fff;
+        }
+        &:hover {
+            color:#999;
+        }
+        + a { border-top:1px solid #333; }
+    }
+}
+
+.demo-showdetails::after {
+    content:"Details";
+    background:#999;
+    font-size:12px;
+    color:#fff;
+    padding:2px 8px 0 8px;
+    text-transform:uppercase;
+    margin:0 0 0 8px;
+    border-radius:2px;
+    display:inline-block;
+    position:relative;
+    bottom:3px;
+}
+
+.demo-patterns {
+    margin:0 0 0 160px;
+}
+
+.demo-pattern {
+    padding:@space (@space * 2);
+    background:#fff;
+    + .demo-pattern { border-top:1px solid #ddd; }
+}
+.demo-page-title {
+    font-size:38px;
+    margin:@space 0 (@space * 1) (@space * 2);
+    font-weight:100;
+}
+.demo-download {
+    margin:@space 0 (@space * 2) (@space * 2);
+    display:inline-block;
+    border:2px solid @color-highlight;
+    border-radius:4px;
+    padding:@space;
+}
+
+.demo-filter-wrapper {
+    float:right;
+    position:relative;
+    margin-right:(@space * 2);
+    overflow:hidden;
+    .demo-filter {
+        border:none;
+        border-bottom:1px solid #ddd;
+        width:400px;
+        font-weight:100;
+        font-size:38px;
+        &:focus { outline:none; }
+    }
+    .demo-clear-query {
+        .position(absolute, 14px, 0, auto, auto);
+        cursor:pointer;
+        font-weight: 100;
+        display: block;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #ddd;
+        text-align: center;
+        line-height: 30px;
+        font-size: 18px;
+        border-radius: 50%;
+        color: #ddd;
+        transition:all 0.4s ease-in-out;
+        transform:translate3D(80px, 0, 0);
+        &.show {
+            transform:translate3D(0px, 0, 0);
+        }
+        &:hover {
+            border-color:#aaa;
+            color:#aaa;
+        }
+    }
+}
+.demo-pattern-title {
+    font-size:24px;
+    font-weight:100;
+    margin-bottom:@space;
+    text-transform:capitalize;
+    cursor:pointer;
+}
+.demo-details {
+    display:none;
+    .demo-keywords {
+        display:none;
+    }
+    p {
+        margin-bottom:6px;
+    }
+}
+.demo-rendered {
+    .cf();
+    padding:@space 0;
+}
+.demo-subtitle {
+    margin:@space 0;
+}
+
+.demo-code {
+    width:100%;
+    background:#444;
+    border-radius:2px;
+    box-shadow:inset 0 0 2px #000;
+    color:lime;
+    padding:(@space / 2);
+    overflow-x:scroll;
+}

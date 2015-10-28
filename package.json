@@ -1,0 +1,22 @@
+{
+  "name": "Styleguide Starter",
+  "version": "1.0.0",
+  "author": "Merlin Mason",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-autoprefixer": "~0.4.0",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-imagemin": "~0.4.0",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-uglify": "~0.2.5",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-notify": "~0.2.15",
+    "grunt-shell": "^1.1.2",
+    "matchdep": "*"
+  }
+}

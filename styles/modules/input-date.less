@@ -1,0 +1,128 @@
+/*!
+ * Datepicker for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+.datepicker {
+    top:0;
+    left:0;
+    display:none;
+    margin-top:(@space / 2);
+    margin-bottom:(@space * 2);
+    padding:6px 0;
+    position:absolute;
+    z-index:99;
+    background:@color-highlight;
+    border-radius:2px;
+    color:#fff;
+    width:260px;
+    &:before {
+        content:'';
+        display:inline-block;
+        border-left:(@space / 2) solid transparent;
+        border-right:(@space / 2) solid transparent;
+        border-bottom:(@space / 2) solid @color-highlight;
+        position:absolute;
+        top:(-@space / 2);
+        left:@space;
+    }
+    >div {
+        display:none;
+    }
+    table{
+        width:100%;
+        margin:0;
+    }
+    td,
+    th{
+        text-align:center;
+        padding:4px 8px;
+    }
+    td {
+        &.day:hover {
+            color:darken(@color-highlight, 20%);
+            cursor:pointer;
+        }
+        &.day.disabled {
+            color:@color-details;
+        }
+        &.old,
+        &.new {
+            color:darken(@color-highlight, 20%);
+        }
+        &.active,
+        &.active:hover {
+            color:#fff;
+        }
+        span {
+            display:inline-block;
+            margin:6px;
+            cursor:pointer;
+            &:hover {
+                color:darken(@color-highlight, 20%);
+            }
+            &.active {
+                color:#fff;
+            }
+            &.old {
+                color:darken(@color-highlight, 20%);
+            }
+        }
+    }
+
+    th {
+        font-size:16px;
+        font-weight:100;
+        &.next,
+        &.prev {
+            color:transparent;
+            .icon();
+            width:auto;
+            display:table-cell;
+            margin:0;
+            &:hover {
+                color:transparent;
+                &::before {
+                    color:darken(@color-highlight, 20%);
+                }
+            }
+            &::before {
+                color:#fff;
+            }
+        }
+        &.next {
+            text-align:right;
+        }
+        &.prev::before {
+            content:"\e803";
+        }
+        &.next::before {
+            content:"\e802";
+        }
+    }
+
+    thead {
+        tr:first-child th {
+            cursor:pointer;
+        }
+    }
+    tbody {
+        border-top:1px solid darken(@color-highlight, 20%);
+        font-size:14px;
+    }
+}
+.input-append,
+.input-prepend {
+    &.date {
+        .add-on i {
+            display:block;
+            cursor:pointer;
+            width:16px;
+            height:16px;
+        }
+    }
+}

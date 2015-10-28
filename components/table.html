@@ -1,0 +1,58 @@
+<div id="example">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <button class="sort" data-sort="letters">
+                        Letters
+                        <i class="icon-minus"></i>
+                    </button>
+                </th>
+                <th>
+                    <button class="sort" data-sort="numbers">
+                        Numbers
+                        <i class="icon-minus"></i>
+                    </button>
+                </th>
+                <th>
+                    <button class="sort" data-sort="fruits">
+                        Fruits
+                        <i class="icon-minus"></i>
+                    </button>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="list">
+            <tr>
+                <td class="letters">ABC</td>
+                <td class="numbers">123</td>
+                <td class="fruits">
+                    Apples
+                    <i class="icon-cancel fr"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="letters">DEF</td>
+                <td class="numbers">456</td>
+                <td class="fruits">
+                    Oranges
+                    <i class="icon-cancel fr"></i>
+                </td>
+            </tr>
+            <tr>
+                <td class="letters">GHI</td>
+                <td class="numbers">789</td>
+                <td class="fruits">
+                    Bananas
+                    <i class="icon-cancel fr"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    window.onload = function() {
+        var userList = new List("example", { valueNames: [ "letters", "numbers", "fruits" ] });
+    };
+</script>

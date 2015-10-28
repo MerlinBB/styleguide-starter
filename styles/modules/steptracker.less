@@ -1,0 +1,53 @@
+.steptracker {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    border-collapse:separate;
+    counter-reset:steptrackerCounter;
+    margin-bottom:(@space * 2);
+    .steptracker-step {
+        position:relative;
+        display:table-cell;
+        width:1%;
+        list-style:none;
+        &::before {
+            content:"";
+            .position(absolute, 50%, 0, auto, 0, 1);
+            background:@color-highlight;
+            display:block;
+            height:8px;
+            margin-top:-4px;
+        }
+        &::after {
+            .square(40px);
+            line-height:40px;
+            text-align:center;
+            color:#fff;
+            font-weight:bold;
+            font-size:20px;
+            position:relative;
+            z-index:2;
+            display:block;
+            border-radius:50%;
+            background:@color-highlight;
+            content:counter(steptrackerCounter);
+            counter-increment:steptrackerCounter;
+        }
+        &.current {
+            &::before {
+                background:@color-details;
+            }
+            & ~ .steptracker-step {
+                &::before {
+                    background:@color-details;
+                }
+                &::after {
+                    background:@color-details;
+                }
+            }
+        }
+        &:last-child::before {
+            display:none;
+        }
+    }
+}

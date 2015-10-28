@@ -1,0 +1,22 @@
+.pagination {
+    text-align:center;
+    margin-bottom:(@space * 2);
+    .pagination-item {
+        display:inline-block;
+        .square((@space * 2));
+        line-height:(@space * 2);
+        text-align:center;
+        border:1px solid @color-details;
+        &:link,
+        &:visited {
+            color:@color-details;
+        }
+        &.current {
+            color:@color-highlight;
+        }
+        &:hover {
+            color:@color-highlight;
+            border-color:darken(@color-details, 10%);
+        }
+    }
+}

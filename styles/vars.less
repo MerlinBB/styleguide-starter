@@ -1,0 +1,53 @@
+//----------------------------------------------------------------------------//
+// Variables
+//----------------------------------------------------------------------------//
+
+//----------------------------------------------------------------------------//
+// Colors
+//----------------------------------------------------------------------------//
+
+
+// Highlights
+@color-highlight:           #49cf87;
+@color-alert:               #FE4C44;
+@color-secondary:           #929292;
+@color-warning:             #D7862B;
+@color-danger:              #D75233;
+@color-details:             #d4d6d8;
+@color-tertiary:            #64B0E2;
+
+// Text
+@color-text:                #222;
+
+// Forms
+@input-color-placeholder:   lighten(@color-text, 25%);
+
+
+//----------------------------------------------------------------------------//
+// Scaffolding
+//----------------------------------------------------------------------------//
+
+
+@space:                        18px;
+
+@screen-sm-min:                768px;
+@screen-md-min:                992px;
+@screen-lg-min:                1200px;
+
+@container-sm:                 100%;
+@container-md:                 90%;
+@container-lg:                 80%;
+
+@grid-columns:                 12;
+@grid-gutter-width:            (@space * 3);
+
+@grid-float-breakpoint:        @screen-sm-min;
+@grid-float-breakpoint-max:    (@grid-float-breakpoint - 1);
+
+.container {
+    .container-fixed();
+    @media (min-width: @screen-sm-min) { width: @container-sm; }
+    @media (min-width: @screen-md-min) { width: @container-md; }
+    @media (min-width: @screen-lg-min) { width: @container-lg; }
+}
+

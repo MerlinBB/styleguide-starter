@@ -1,0 +1,69 @@
+// responsive wrapper
+.table-wrap {
+    @media (max-width: @screen-sm-min) {
+        min-height:.01%;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        width:100%;
+        overflow-y:hidden;
+        box-shadow:inset 0 0 0 1px @color-details;
+        margin-bottom:@space;
+        .table {
+            margin-bottom:0;
+        }
+    }
+}
+
+.table {
+    width:100%;
+    margin-bottom:(@space * 2);
+    text-align:left;
+    thead {
+        tr {
+            border-bottom:1px solid @color-details;
+        }
+        th {
+            padding:@space;
+            font-weight:400;
+            color:@color-secondary;
+            .sort {
+                border:0;
+                background:transparent;
+                transition:color 0.2s;
+                cursor:pointer;
+                padding:0;
+                &:hover {
+                    color:darken(@color-secondary, 20%);
+                }
+                &:focus {
+                    outline:none;
+                }
+                &.desc i::before { content:"\e800"; }
+                &.asc i::before { content:"\e801"; }
+            }
+        }
+    }
+    tbody {
+        tr {
+            border-bottom:1px solid @color-details;
+            &:hover {
+                background:#f0f0f0;
+            }
+        }
+        td {
+            padding:@space;
+        }
+    }
+    @media (max-width: @screen-sm-min) {
+        thead {
+            th {
+                padding:6px;
+            }
+        }
+        tbody {
+            td {
+                padding:6px;
+            }
+        }
+    }
+}
